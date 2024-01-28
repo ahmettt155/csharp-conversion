@@ -19,6 +19,7 @@ namespace CONVERSION
 
             Console.WriteLine(a);
             Console.WriteLine(a.GetType());
+            Console.ReadLine();
             
 
 
