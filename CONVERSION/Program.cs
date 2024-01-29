@@ -9,20 +9,19 @@ namespace CONVERSION
     internal class Program
     {
         static void Main(string[] args)
+            
 
 
         {
+            Console.WriteLine("Lutfen yasinizi giriniz");
+            string kullanici_yas = Console.ReadLine();
 
-            double sayi = 5.32;
+            int kullanici_yasInt = Convert.ToInt32(kullanici_yas);
+            int kullanici_yasInt2 = int.Parse(kullanici_yas);
 
-           int a = Convert.ToInt32(sayi);
-
-            Console.WriteLine(a);
-            Console.WriteLine(a.GetType());
+            Console.WriteLine(kullanici_yasInt);
+            Console.WriteLine(kullanici_yasInt2);
             Console.ReadLine();
-             
-
-
 
 
 
