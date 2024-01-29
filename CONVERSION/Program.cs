@@ -21,14 +21,13 @@ namespace CONVERSION
             Console.WriteLine("dogdugunuz yılı giriniz");
 
             string yil1 = Console.ReadLine();
-            int yil1Int = Convert.ToInt32(yil1);
-
-            int toplam = yil1Int + yas1Int;
+            int yil1Int = Convert.ToInt32(yil1);                  
 
 
 
-            Console.WriteLine(toplam);
-            Console.ReadLine();
+
+            Console.WriteLine("toplam = " +yas1+yil1);  //YAN YANA YAZDIRIYORUZ VE BURDA SADECE STRİNGLERİ
+            Console.ReadLine();                         //TOPLUYORUZ YANİ İNTLERE GEREK YOK
 
 
 
