@@ -13,14 +13,21 @@ namespace CONVERSION
 
 
         {
-            Console.WriteLine("Lutfen yasinizi giriniz");
-            string kullanici_yas = Console.ReadLine();
+            Console.WriteLine("Lutfen yasınızı giriniz");        //KULLANICIDAN DEĞER ALIRKEN STRİNG KULLANIRIZ
+                                                                 //O YÜZDEN STRİNGİ INT'E ÇEVİRMEMİZ LAZIM
+            string yas1 = Console.ReadLine();
+            int yas1Int = Convert.ToInt32(yas1);
 
-            int kullanici_yasInt = Convert.ToInt32(kullanici_yas);
-            int kullanici_yasInt2 = int.Parse(kullanici_yas);
+            Console.WriteLine("dogdugunuz yılı giriniz");
 
-            Console.WriteLine(kullanici_yasInt);
-            Console.WriteLine(kullanici_yasInt2);
+            string yil1 = Console.ReadLine();
+            int yil1Int = Convert.ToInt32(yil1);
+
+            int toplam = yil1Int + yas1Int;
+
+
+
+            Console.WriteLine(toplam);
             Console.ReadLine();
 
 
