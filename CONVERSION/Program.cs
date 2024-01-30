@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CONVERSION
@@ -10,44 +13,56 @@ namespace CONVERSION
     {
         static void Main(string[] args)
 
-
-
         {
-            Console.WriteLine("1. notunuzu girinz");
-            int not1 = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("2. notunuzu giriniz");
-            int not2 = Convert.ToInt32(Console.ReadLine());
+            int bakiye = 600;
+            Console.WriteLine("Nasıl bir işlem yapmak istiyorsunuz?");
+            Console.WriteLine("1 = Bakiyenizi görüntüleyin");
+            Console.WriteLine("2 = belirlediğiniz tutarda para çekin");
+            Console.WriteLine("3 = Belirlediğiniz tutarda para yatırın");
+            Console.WriteLine("4 = Hesabınızdan çıkış yapın");
+            string secim = Console.ReadLine();
 
-            Console.WriteLine("3. notu giriniz");
-            int not3 = Convert.ToInt32(Console.ReadLine());
-
-            int ortalama = (not1 + not2 + not3) / 3;
-
-            Console.WriteLine("ortalamanız = " + ortalama);
-
-
-            if (ortalama >= 60)
-
+            if (secim == "1")
             {
-                if (ortalama >= 80)
-                    Console.WriteLine("S+");
-
-                else
-                    Console.WriteLine("A+");
+                Console.WriteLine("bakiyeniz = " + bakiye + "$");
+                Console.ReadLine();
 
             }
-            else
+            else if (secim == "2")
             {
-                if (ortalama >= 40)
-                    Console.WriteLine("B+");
-
-                else
-                    Console.WriteLine("F");
-
+                Console.WriteLine("Çekmek istediğiniz tutarı giriniz");
+                int cekilecek_tutar = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Kalan tutar = " + (bakiye - cekilecek_tutar));
+                Console.WriteLine(cekilecek_tutar + "$ Başarıyla çekilmiştir.");
+                Console.ReadLine();
             }
-            Console.ReadLine();
+            else if (secim == "3")
+            {
+                Console.WriteLine("yatırılacak tutarı giriniz");
+                int yatiriliacak_tutar = Convert.ToInt32(Console.ReadLine());
+                bakiye = bakiye + yatiriliacak_tutar;
+                Console.WriteLine(yatiriliacak_tutar + "$ başarıyla yatırılmıştır");
+                Console.WriteLine("yeni bakiyeniz = " + bakiye);
+                Console.ReadLine();
+            }
+            else if (secim =="4")
+            {
+                Console.WriteLine("Çıkış yapılıyor..");
+                Thread.Sleep(1500);
+            
+            }
 
-        }
+
+
+
+
+
+
+
+
+
+        }   
+            
     }
 }
