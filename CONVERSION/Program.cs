@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -21,21 +22,35 @@ namespace CONVERSION
             Console.WriteLine("2 = belirlediğiniz tutarda para çekin");
             Console.WriteLine("3 = Belirlediğiniz tutarda para yatırın");
             Console.WriteLine("4 = Hesabınızdan çıkış yapın");
+        baslangic:
             string secim = Console.ReadLine();
 
             if (secim == "1")
             {
                 Console.WriteLine("bakiyeniz = " + bakiye + "$");
-                Console.ReadLine();
 
+                goto baslangic;
             }
             else if (secim == "2")
             {
                 Console.WriteLine("Çekmek istediğiniz tutarı giriniz");
                 int cekilecek_tutar = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Kalan tutar = " + (bakiye - cekilecek_tutar));
-                Console.WriteLine(cekilecek_tutar + "$ Başarıyla çekilmiştir.");
-                Console.ReadLine();
+
+                if (cekilecek_tutar <= bakiye)
+                {
+                    bakiye = bakiye - cekilecek_tutar;
+                    Console.WriteLine("Kalan tutar = " + (bakiye));
+                    Console.WriteLine(cekilecek_tutar + "$ Başarıyla çekilmiştir.");
+                    goto baslangic;
+                }
+                else
+                {
+                    Console.WriteLine("Yeterli para bulunmamaktadır");
+                    goto baslangic;
+
+                }
+
+
             }
             else if (secim == "3")
             {
@@ -44,25 +59,24 @@ namespace CONVERSION
                 bakiye = bakiye + yatiriliacak_tutar;
                 Console.WriteLine(yatiriliacak_tutar + "$ başarıyla yatırılmıştır");
                 Console.WriteLine("yeni bakiyeniz = " + bakiye);
-                Console.ReadLine();
+                goto baslangic;
             }
-            else if (secim =="4")
+            else if (secim == "4")
             {
                 Console.WriteLine("Çıkış yapılıyor..");
                 Thread.Sleep(1500);
-            
+
             }
+            else
+            {
+                Console.WriteLine("Geçerli bir işlem giriniz");
+
+                goto baslangic;
+            }
+        }
+        
 
 
 
-
-
-
-
-
-
-
-        }   
-            
     }
 }
