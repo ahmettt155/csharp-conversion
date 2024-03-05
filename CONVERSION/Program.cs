@@ -71,7 +71,7 @@ namespace CONVERSION
             {
                 Console.WriteLine("Geçerli bir işlem giriniz");
 
-                goto baslangic; 
+                goto baslangic;  
             }
         }
         
